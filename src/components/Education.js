@@ -22,6 +22,7 @@ const Educational = () => {
 				type="submit">Edit
 			    </Button>
                 <Button
+                variant="success"
 				type="submit">Save
 			    </Button>
 			</form>

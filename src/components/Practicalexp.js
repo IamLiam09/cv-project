@@ -31,6 +31,7 @@ const WorkExperience = () => {
 				type="submit">Edit
 			</Button>
 			<Button
+                variant="success"
 				type="submit">Save
 			</Button>
 		</div>
