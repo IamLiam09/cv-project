@@ -1,6 +1,9 @@
-import React from "react";
+import react, {useState} from "react";
 import { Row, Button } from "react-bootstrap";
-const BuildBtn = () => {
+const BuildBtn = ({all}) => {
+    const disp = ({all}) => {
+        console.log(all)
+    }
     return(
         <>
             <Row>
