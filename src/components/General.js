@@ -11,7 +11,7 @@ const PersonalInfo = () => {
 	return (
 		<div>
 			<h1>Personal Information</h1>
-			<form onSubmit={}>
+			<form onSubmit="">
 				<Row>
 					<label for="firstNameInput">First Name</label>
 					<input type="text" 
