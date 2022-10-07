@@ -1,6 +1,5 @@
 import react, { useState } from "react";
 import { Col, Row, Button } from "react-bootstrap";
-import BuildBtn from "./Buildbtn.js";
 
 const Educational = () => {
 	const [educationInfo, setEducationInfo] = useState([
@@ -10,10 +9,17 @@ const Educational = () => {
 			startYear: "",
 			endYear: "",
 		},
+		
 	]);
+	// Basic function to prevent default submit
 	const handleSubmit = (e) => {
 		e.preventDefault();
 	};
+	// A function to send value to app
+	const send = () => {
+		return educationInfo
+	}
+	// The function I used for adding in new forms
 	const addEducationForm = () => {
 		setEducationInfo([
 			...educationInfo,
@@ -25,6 +31,7 @@ const Educational = () => {
 			},
 		]);
 	};
+	// The function to handle input
 	const handleInputChange = (index, e) => {
 		const inputvalue = [...educationInfo];
 		inputvalue[index][e.target.name] = e.target.value;

@@ -5,6 +5,7 @@ const BuildBtn = ({all}) => {
         e.preventDefault()
         console.log(all)
     }
+    
     return(
         <>
             <Row>

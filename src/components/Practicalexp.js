@@ -11,15 +11,19 @@ const WorkExperience = () => {
 			end: "",
 		},
 	]);
+	// The function to handleinput
 	const handleInputChange = (index, e) => {
 		const inputvalue = [...generalInfo];
 		inputvalue[index][e.target.name] = e.target.value;
 		setGeneralInfo(inputvalue);
 	};
+	// Basic function to prevent default submit
 	const handleSubmit = (e) => {
 		e.preventDefault();
 	};
-	const addWorkExperience = () => {
+	// The function I used for adding in new forms
+	const addWorkExperience = (e) => {
+		e.preventDefault()
 		setGeneralInfo([
 			...generalInfo,
 			{
@@ -29,11 +33,22 @@ const WorkExperience = () => {
 				from: "",
 				end: "",
 			},
+			
 		]);
 	};
+	
+	const deleteTask = (e , index) => {
+		e.preventDefault()
+		console.log(e.target.jobTitle)
+		setGeneralInfo(generalInfo.filter((general) => general.index !== index))
+	  }
+	// A function to send value to app
+	const send = () => {
+		return generalInfo
+	}
 	return (
 		<>
-			<form onSumbmit={handleSubmit}>
+			<form onSubmit={handleSubmit}>
 				{generalInfo.map((generalInfos, index) => {
 					return (
 						<div className="mt-4" key={index}>
@@ -93,16 +108,16 @@ const WorkExperience = () => {
 									onChange={(e) => handleInputChange(index, e)}
 								/>
 							</Row>
+							<div className="mt-3 mb-3 butt">
+								<Button type="submit" onClick={(e) => deleteTask(e, index)}>Edit</Button>
+								<Button variant="success" type="submit" onClick={(e) => addWorkExperience(e)}>
+									Add
+								</Button>
+							</div>
 						</div>
 					);
 				})}
 			</form>
-			<div className="mt-3 mb-3 butt">
-				<Button type="submit">Edit</Button>
-				<Button variant="success" type="submit" onClick={addWorkExperience}>
-					Add
-				</Button>
-			</div>
 		</>
 	);
 };

@@ -1,6 +1,6 @@
 import React, { components } from "react"
 import './App.css';
-import General from "./components/General.js"
+import PersonalInfo from "./components/General.js"
 import Educational from "./components/Education.js"
 import WorkExperience from "./components/Practicalexp.js"
 import Buildbtn from "./components/Buildbtn.js"
@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <Container >
-        <General />
+        <PersonalInfo />
         <WorkExperience />
         <Educational />
         <Buildbtn />
