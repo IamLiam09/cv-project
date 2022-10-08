@@ -1,24 +1,24 @@
 import react, { useState } from "react";
+import uniqid from "uniqid";
 import { Col, Row, Button } from "react-bootstrap";
 
-const Educational = () => {
+const Educational = (props) => {
 	const [educationInfo, setEducationInfo] = useState([
 		{
 			nameOfSchool: "",
 			degree: "",
 			startYear: "",
 			endYear: "",
+			id: uniqid()
 		},
-		
 	]);
 	// Basic function to prevent default submit
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		props.trigger()
+		props.collectData(educationInfo)
 	};
 	// A function to send value to app
-	const send = () => {
-		return educationInfo
-	}
 	// The function I used for adding in new forms
 	const addEducationForm = () => {
 		setEducationInfo([
@@ -28,6 +28,7 @@ const Educational = () => {
 				degree: "",
 				startYear: "",
 				endYear: "",
+				id: uniqid()
 			},
 		]);
 	};
@@ -36,6 +37,7 @@ const Educational = () => {
 		const inputvalue = [...educationInfo];
 		inputvalue[index][e.target.name] = e.target.value;
 		setEducationInfo(inputvalue);
+
 	};
 	return (
 		<>

@@ -1,6 +1,6 @@
 import react, { useState } from "react";
 import { Col, Row } from "react-bootstrap";
-const PersonalInfo = () => {
+const PersonalInfo = (props) => {
 	const [personalInfo, setpersonalInfo] = useState([
 		{
 			firstName: "",
@@ -9,7 +9,7 @@ const PersonalInfo = () => {
 			phoneNumber: "",
 			email: "",
 			website: "",
-			location: "",
+			location: ""
 		},
 	]);
 	const handleInputChange = (index, e) => {
@@ -19,11 +19,8 @@ const PersonalInfo = () => {
 	};
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		props.onSumbit(personalInfo)
 	};
-	// A function to send value to app
-	const send = () => {
-		return personalInfo
-	}
 	return (
 		<>
 			<h1>Personal Information</h1>

@@ -1,7 +1,7 @@
 import react, { useState } from "react";
 import { Row, Col, Button } from "react-bootstrap";
 
-const WorkExperience = () => {
+const WorkExperience = (props) => {
 	const [generalInfo, setGeneralInfo] = useState([
 		{
 			jobTitle: "",
@@ -16,10 +16,12 @@ const WorkExperience = () => {
 		const inputvalue = [...generalInfo];
 		inputvalue[index][e.target.name] = e.target.value;
 		setGeneralInfo(inputvalue);
+
 	};
 	// Basic function to prevent default submit
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		props.onSubmit(generalInfo)
 	};
 	// The function I used for adding in new forms
 	const addWorkExperience = (e) => {
@@ -37,15 +39,11 @@ const WorkExperience = () => {
 		]);
 	};
 	
-	const deleteTask = (e , index) => {
-		e.preventDefault()
-		console.log(e.target.jobTitle)
-		setGeneralInfo(generalInfo.filter((general) => general.index !== index))
-	  }
-	// A function to send value to app
-	const send = () => {
-		return generalInfo
-	}
+	// const deleteTask = (e , index) => {
+	// 	e.preventDefault()
+	// 	console.log(e.target.jobTitle)
+	// 	setGeneralInfo(generalInfo.filter((general) => general.index !== index))
+	//   }
 	return (
 		<>
 			<form onSubmit={handleSubmit}>
@@ -109,7 +107,7 @@ const WorkExperience = () => {
 								/>
 							</Row>
 							<div className="mt-3 mb-3 butt">
-								<Button type="submit" onClick={(e) => deleteTask(e, index)}>Edit</Button>
+								<Button type="submit" >Edit</Button>
 								<Button variant="success" type="submit" onClick={(e) => addWorkExperience(e)}>
 									Add
 								</Button>

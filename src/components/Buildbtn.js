@@ -1,16 +1,12 @@
 import react, {useState} from "react";
 import { Row, Button } from "react-bootstrap";
-const BuildBtn = ({all}) => {
-    const disp = ({e, all}) => {
-        e.preventDefault()
-        console.log(all)
-    }
+const BuildBtn = (props) => {
     
     return(
         <>
             <Row>
                 <Button type="submit"
-                onClick = {disp}>
+                onClick = {props.onClick}>
                     Build
                 </Button>
             </Row>
