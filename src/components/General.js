@@ -7,15 +7,16 @@ const PersonalInfo = (props) => {
 			lastName: "",
 			title: "",
 			phoneNumber: "",
+			location: "",
 			email: "",
 			website: "",
-			location: ""
 		},
 	]);
 	const handleInputChange = (index, e) => {
 		const inputvalue = [...personalInfo];
 		inputvalue[index][e.target.name] = e.target.value;
 		setpersonalInfo(inputvalue);
+		props.onChange(personalInfo)
 	};
 	const handleSubmit = (e) => {
 		e.preventDefault();

@@ -9,16 +9,14 @@ const Educational = (props) => {
 			degree: "",
 			startYear: "",
 			endYear: "",
-			id: uniqid()
+			id: uniqid(),
 		},
 	]);
 	// Basic function to prevent default submit
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		props.trigger()
-		props.collectData(educationInfo)
+		props.trigger();
 	};
-	// A function to send value to app
 	// The function I used for adding in new forms
 	const addEducationForm = () => {
 		setEducationInfo([
@@ -28,7 +26,7 @@ const Educational = (props) => {
 				degree: "",
 				startYear: "",
 				endYear: "",
-				id: uniqid()
+				id: uniqid(),
 			},
 		]);
 	};
@@ -37,8 +35,24 @@ const Educational = (props) => {
 		const inputvalue = [...educationInfo];
 		inputvalue[index][e.target.name] = e.target.value;
 		setEducationInfo(inputvalue);
-
+		props.onChange(educationInfo)
 	};
+	// The fucntion to  handle delete
+	const del = (id) => {
+		setEducationInfo(educationInfo.filter((item) => item.id !== id));
+	};
+	const WhenEmpty = () => {
+		if(educationInfo.length < 1){
+			console.log("empty")
+			return(
+				<div>
+					<Button variant="success" onClick={addEducationForm}>
+						Add
+					</Button>
+				</div>
+			)
+		}
+	}
 	return (
 		<>
 			<form onSubmit={handleSubmit}>
@@ -89,14 +103,16 @@ const Educational = (props) => {
 								/>
 							</Row>
 							<div className="mt-3 mb-3 butt">
-								<Button type="submit">Edit</Button>
-								<Button variant="success" type="submit"
-								onClick = {addEducationForm}>
+								<Button onClick={() => del(educationInfos.id)} variant="danger">
+									Delete
+								</Button>
+								<Button variant="success" onClick={addEducationForm}>
 									Add
 								</Button>
 							</div>
 						</div>
 					);
+					<WhenEmpty />
 				})}
 			</form>
 		</>

@@ -1,42 +1,48 @@
-import react, { components } from "react"
+
+import react, { components, useState} from "react"
 import './App.css';
 import PersonalInfo from "./components/General.js"
 import Educational from "./components/Education.js"
 import WorkExperience from "./components/Practicalexp.js"
 import Buildbtn from "./components/Buildbtn.js"
+import GeneralView from "./view/Generalview.js"
 import { Container, Row, Col, Button} from "react-bootstrap"
 
 function App() {
+  let firstarr = {}
+  let secondarr = {}
+  let  thirdarr = {}
   const educationalData = (data) => {
-    const first = data
-    const firstarr = [...first]
-    firstarr.map((firstus) => {
-      console.log(firstus.nameOfSchool)
-    })
+    const third = data
+    thirdarr = [...third]
+    
   }
   const workexperienceData = (data) => {
     const second = data
-    const secondarr = [...second]
-    secondarr.map((secondarr) => {
-      console.log(secondarr.jobTitle)
-    })
+    secondarr = [...second]
   }
-  const personalData = (data) => {
-    const third = data
-    const thirdarr = [...third]
-    console.log(thirdarr)
+  const PersonalData = (data) => {
+    const first = data
+    firstarr = [...first]
   }
-  const trigger = (e) => {
-    e.preventDefault()
-    console.log("working for all")
+  const wl = () => {
+    {firstarr.map((firstus, index) => {
+      return(
+        <div key={index}>
+          <Row>
+            <h1 className="mt-4">{firstus.firstName}</h1>
+          </Row>
+        </div>
+      )
+    })}
   }
   return (
     <>
       <Container >
-        <PersonalInfo onSubmit={(e) => trigger} />
-        <WorkExperience onSubmit={(e) => trigger} />
-        <Educational onSubmit={trigger} collectData={educationalData}/>
-        <Buildbtn onClick={trigger}/>
+        <PersonalInfo onChange={PersonalData}/>
+        <WorkExperience onChange={workexperienceData}/>
+        <Educational  onChange={educationalData}/>
+        <Buildbtn />
       </Container>
       
     </>

@@ -1,12 +1,10 @@
 import react, {useState} from "react";
 import { Row, Button } from "react-bootstrap";
-const BuildBtn = (props) => {
-    
+const BuildBtn = () => {
     return(
         <>
             <Row>
-                <Button type="submit"
-                onClick = {props.onClick}>
+                <Button >
                     Build
                 </Button>
             </Row>
