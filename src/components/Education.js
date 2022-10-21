@@ -1,21 +1,13 @@
-import react, { useState } from "react";
+import { useState } from "react";
 import uniqid from "uniqid";
-import { Col, Row, Button } from "react-bootstrap";
+import { Row, Button } from "react-bootstrap";
 
 const Educational = (props) => {
-	const [educationInfo, setEducationInfo] = useState([
-		{
-			nameOfSchool: "",
-			degree: "",
-			startYear: "",
-			endYear: "",
-			id: uniqid(),
-		},
-	]);
+	const {educationInfo, setEducationInfo} = props
+	const [emptyvalue, setEmptyValue] = useState(false)
 	// Basic function to prevent default submit
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		props.trigger();
 	};
 	// The function I used for adding in new forms
 	const addEducationForm = () => {
@@ -23,6 +15,7 @@ const Educational = (props) => {
 			...educationInfo,
 			{
 				nameOfSchool: "",
+				location: "",
 				degree: "",
 				startYear: "",
 				endYear: "",
@@ -34,24 +27,23 @@ const Educational = (props) => {
 	const handleInputChange = (index, e) => {
 		const inputvalue = [...educationInfo];
 		inputvalue[index][e.target.name] = e.target.value;
+		console.log(educationInfo)
 		setEducationInfo(inputvalue);
-		props.onChange(educationInfo)
 	};
 	// The fucntion to  handle delete
 	const del = (id) => {
 		setEducationInfo(educationInfo.filter((item) => item.id !== id));
+		SwitchEmpty()
 	};
-	const WhenEmpty = () => {
-		if(educationInfo.length < 1){
-			console.log("empty")
-			return(
-				<div>
-					<Button variant="success" onClick={addEducationForm}>
-						Add
-					</Button>
-				</div>
-			)
+	const SwitchEmpty =  () => {
+		if(educationInfo.length < 2){
+			setEmptyValue(emptyvalue => !emptyvalue)
 		}
+	}
+	// remove button
+	const removeButton = () =>{
+		addEducationForm()
+		setEmptyValue(empty => !emptyvalue)
 	}
 	return (
 		<>
@@ -68,6 +60,17 @@ const Educational = (props) => {
 									placeholder="Name of school"
 									name="nameOfSchool"
 									value={educationInfos.nameOfSchool}
+									onChange={(e) => handleInputChange(index, e)}
+								/>
+							</Row>
+							<Row>
+								<label for="Degree">Location</label>
+								<input
+									type="text"
+									id="Location"
+									placeholder="Location"
+									name="Location"
+									value={educationInfos.location}
 									onChange={(e) => handleInputChange(index, e)}
 								/>
 							</Row>
@@ -112,9 +115,12 @@ const Educational = (props) => {
 							</div>
 						</div>
 					);
-					<WhenEmpty />
 				})}
 			</form>
+			<div className="mt-3 butt">
+				{emptyvalue && <Button onClick={removeButton}
+				variant="success" className="end">Add Education</Button>}
+			</div>
 		</>
 	);
 };

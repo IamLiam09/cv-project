@@ -5,46 +5,55 @@ import PersonalInfo from "./components/General.js"
 import Educational from "./components/Education.js"
 import WorkExperience from "./components/Practicalexp.js"
 import Buildbtn from "./components/Buildbtn.js"
-import GeneralView from "./view/Generalview.js"
+import Generalview from "./layouts/Generalview.js"
 import { Container, Row, Col, Button} from "react-bootstrap"
-
+import uniqid from "uniqid";
 function App() {
-  let firstarr = {}
-  let secondarr = {}
-  let  thirdarr = {}
-  const educationalData = (data) => {
-    const third = data
-    thirdarr = [...third]
-    
-  }
-  const workexperienceData = (data) => {
-    const second = data
-    secondarr = [...second]
-  }
-  const PersonalData = (data) => {
-    const first = data
-    firstarr = [...first]
-  }
-  const wl = () => {
-    {firstarr.map((firstus, index) => {
-      return(
-        <div key={index}>
-          <Row>
-            <h1 className="mt-4">{firstus.firstName}</h1>
-          </Row>
-        </div>
-      )
-    })}
-  }
+  // The state for PersonalInfo
+  const [personalInfo, setpersonalInfo] = useState([
+		{
+			firstName: "",
+			lastName: "",
+			title: "",
+			phoneNumber: "",
+			location: "",
+			email: "",
+			website: "",
+		},
+	]);
+	// The state of work experience
+	const [generalInfo, setGeneralInfo] = useState([
+		{
+			jobTitle: "",
+			company: "",
+			location: "",
+			from: "",
+			end: "",
+			id: uniqid(),
+		},
+	]);
+  // The state for EducationInfo
+  const [educationInfo, setEducationInfo] = useState([
+		{
+			nameOfSchool: "",
+			location: "",
+			degree: "",
+			startYear: "",
+			endYear: "",
+			id: uniqid(),
+		},
+	]);
   return (
     <>
       <Container >
-        <PersonalInfo onChange={PersonalData}/>
-        <WorkExperience onChange={workexperienceData}/>
-        <Educational  onChange={educationalData}/>
+        <PersonalInfo personalInfo={personalInfo} setpersonalInfo={setpersonalInfo} />
+        <WorkExperience generalInfo={generalInfo} setGeneralInfo={setGeneralInfo} />
+        <Educational  educationInfo={educationInfo} setEducationInfo={setEducationInfo} />
         <Buildbtn />
+        <div className="bg-white mt-4 mb-3 paper">
+			<Generalview personalInfo={personalInfo}/>
+		</div>
       </Container>
-      
     </>
   );
 }

@@ -1,29 +1,19 @@
-import react, { useState } from "react";
+import { useState } from "react";
 import uniqid from "uniqid";
-import { Row, Col, Button } from "react-bootstrap";
+import { Row, Button } from "react-bootstrap";
 
 const WorkExperience = (props) => {
-	const [generalInfo, setGeneralInfo] = useState([
-		{
-			jobTitle: "",
-			company: "",
-			location: "",
-			from: "",
-			end: "",
-			id: uniqid(),
-		},
-	]);
+	const {generalInfo, setGeneralInfo} = props
+	const [emptyvalue, setEmptyValue] = useState(false)
 	// The function to handleinput
 	const handleInputChange = (index, e) => {
 		const inputvalue = [...generalInfo];
 		inputvalue[index][e.target.name] = e.target.value;
 		setGeneralInfo(inputvalue);
-		props.onChange(generalInfo)
 	};
 	// Basic function to prevent default submit
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		props.onSubmit(generalInfo);
 	};
 	// The function I used for adding in new forms
 	const addWorkExperience = (e) => {
@@ -43,7 +33,18 @@ const WorkExperience = (props) => {
 	// The function to delete one of the form
 	const del = (id) => {
 		setGeneralInfo(generalInfo.filter((item) => item.id !== id));
+		SwitchEmpty()
 	};
+	const SwitchEmpty =  () => {
+		if(generalInfo.length < 2){
+			setEmptyValue(emptyvalue => !emptyvalue)
+		}
+	}
+	// remove button
+	const removeButton = () =>{
+		addWorkExperience()
+		setEmptyValue(empty => !emptyvalue)
+	}
 	return (
 		<>
 			<form onSubmit={handleSubmit}>
@@ -119,6 +120,10 @@ const WorkExperience = (props) => {
 					);
 				})}
 			</form>
+			<div className="mt-3 mb-2 butt">
+				{emptyvalue && <Button onClick={removeButton}
+				variant="success" >Add Work Experience</Button>}
+			</div>
 		</>
 	);
 };

@@ -1,26 +1,14 @@
 import react, { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 const PersonalInfo = (props) => {
-	const [personalInfo, setpersonalInfo] = useState([
-		{
-			firstName: "",
-			lastName: "",
-			title: "",
-			phoneNumber: "",
-			location: "",
-			email: "",
-			website: "",
-		},
-	]);
+	const {personalInfo, setpersonalInfo} = props
 	const handleInputChange = (index, e) => {
 		const inputvalue = [...personalInfo];
 		inputvalue[index][e.target.name] = e.target.value;
 		setpersonalInfo(inputvalue);
-		props.onChange(personalInfo)
 	};
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		props.onSumbit(personalInfo)
 	};
 	return (
 		<>
