@@ -6,12 +6,11 @@ const Generalview = (props) => {
 	return (
 		<section>
             <h1 className="secondarr"> Work Experience</h1>
-            <hr></hr>
+            <hr className="secondarr line"></hr>
 			{secondarr.map((second, index) => {
                 return(
                     <div key={index}>
-					<div>
-                        <div className="secondarr__details">
+                        <div className="__details">
                             <div>
                                 <p>{second.from}-
                                 {second.end}</p>
@@ -24,7 +23,6 @@ const Generalview = (props) => {
                             </div>
                         </div>
 				    </div>
-				</div>
                 )
 			})}
 		</section>

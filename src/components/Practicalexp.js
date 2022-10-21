@@ -16,8 +16,7 @@ const WorkExperience = (props) => {
 		e.preventDefault();
 	};
 	// The function I used for adding in new forms
-	const addWorkExperience = (e) => {
-		e.preventDefault();
+	const addWorkExperience = () => {
 		setGeneralInfo([
 			...generalInfo,
 			{

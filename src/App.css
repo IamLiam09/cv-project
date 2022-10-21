@@ -1,7 +1,4 @@
-hr{
-  height: 20px;
-  background-color: black;
-}
+
 .butt{
   display: flex;
   justify-content: flex-end;
@@ -23,7 +20,7 @@ hr{
   justify-content: center;
   align-items: center;
 }
-.generalview.firstInfo{
+b.generalview.firstInfo{
   font-size: 0.5rem;
 }
 .generalview.firstInfo a{
@@ -32,7 +29,17 @@ hr{
   color: black;
 }
 .secondarr h1{
-  /* border-bottom: 2px black;
-  width: 100%; */
-  line-height: 1.2;
+  border-bottom: 2px solid black;
+}
+.secondarr.line{
+  height: 5px;
+  border-color: black;
+  border-image: none;
+  border-style: solid none none;
+  border-width: 3px 0 0;
+  opacity: 1;
+}
+.secondarr .__details{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
