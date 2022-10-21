@@ -39,7 +39,7 @@ b.generalview.firstInfo{
   border-width: 3px 0 0;
   opacity: 1;
 }
-.secondarr .__details{
+.__details{
   display: grid;
   grid-template-columns: 1fr 1fr;
 }

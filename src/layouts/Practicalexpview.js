@@ -12,8 +12,8 @@ const Generalview = (props) => {
                     <div key={index}>
                         <div className="__details">
                             <div>
-                                <p>{second.from}-
-                                {second.end}</p>
+                                <p>{second.from} - </p>
+                                <p>{second.end}</p>
                             </div>
                             <div>
                                 <p>

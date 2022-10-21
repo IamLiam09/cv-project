@@ -69,7 +69,7 @@ const Educational = (props) => {
 									type="text"
 									id="Location"
 									placeholder="Location"
-									name="Location"
+									name="location"
 									value={educationInfos.location}
 									onChange={(e) => handleInputChange(index, e)}
 								/>

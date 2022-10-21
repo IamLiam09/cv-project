@@ -89,7 +89,6 @@ const WorkExperience = (props) => {
 								<input
 									type="date"
 									id="StartYear"
-									placeholder="From"
 									value={generalInfos.from}
 									name="from"
 									onChange={(e) => handleInputChange(index, e)}
@@ -100,9 +99,8 @@ const WorkExperience = (props) => {
 								<input
 									type="date"
 									id="EndYear"
-									placeholder="To"
 									value={generalInfos.end}
-									name="to"
+									name="end"
 									onChange={(e) => handleInputChange(index, e)}
 								/>
 							</Row>
