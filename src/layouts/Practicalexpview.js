@@ -1,27 +1,31 @@
 import { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 const Generalview = (props) => {
-	const { secondarr } = props;
+	const { generalInfo } = props;
+    const [secondarr, setSecondArr ] = useState(generalInfo)
 	return (
 		<section>
-            <h1 className=""> Work Experience </h1>
+            <h1 className="secondarr"> Work Experience</h1>
+            <hr></hr>
 			{secondarr.map((second, index) => {
-				<div key={index}>
-					<Row>
-                        <div className="flex">
-                            <Row>
-                                <h1>
+                return(
+                    <div key={index}>
+					<div>
+                        <div className="secondarr__details">
+                            <div>
+                                <p>{second.from}-
+                                {second.end}</p>
+                            </div>
+                            <div>
+                                <p>
                                     {second.jobTitle}
-                                </h1>
-                                <h2>{second.location}</h2>
-                            </Row>
-                            <Row>
-                                <h2>{second.company}</h2>
-                                <h4>{second.from}-{second.end}</h4>
-                            </Row>
+                                </p>
+                                <p>{second.company}, {second.location}</p>
+                            </div>
                         </div>
-				    </Row>
-				</div>;
+				    </div>
+				</div>
+                )
 			})}
 		</section>
 	);

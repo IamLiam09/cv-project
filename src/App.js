@@ -6,6 +6,7 @@ import Educational from "./components/Education.js"
 import WorkExperience from "./components/Practicalexp.js"
 import Buildbtn from "./components/Buildbtn.js"
 import Generalview from "./layouts/Generalview.js"
+import Practicalexpview from "./layouts/Practicalexpview"
 import { Container, Row, Col, Button} from "react-bootstrap"
 import uniqid from "uniqid";
 function App() {
@@ -51,7 +52,8 @@ function App() {
         <Educational  educationInfo={educationInfo} setEducationInfo={setEducationInfo} />
         <Buildbtn />
         <div className="bg-white mt-4 mb-3 paper">
-			<Generalview personalInfo={personalInfo}/>
+			<Generalview personalInfo={personalInfo} />
+			<Practicalexpview generalInfo={generalInfo} />
 		</div>
       </Container>
     </>

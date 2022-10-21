@@ -1,3 +1,7 @@
+hr{
+  height: 20px;
+  background-color: black;
+}
 .butt{
   display: flex;
   justify-content: flex-end;
@@ -11,6 +15,8 @@
   box-sizing: border-box;
   box-shadow: 2px 2px 6px 1px;
   background-color: black;
+ padding: 10px;
+
 }
 .generalview{
   display: flex;
@@ -19,4 +25,14 @@
 }
 .generalview.firstInfo{
   font-size: 0.5rem;
+}
+.generalview.firstInfo a{
+  padding-top: 0px;
+  margin-top: 0px;
+  color: black;
+}
+.secondarr h1{
+  /* border-bottom: 2px black;
+  width: 100%; */
+  line-height: 1.2;
 }

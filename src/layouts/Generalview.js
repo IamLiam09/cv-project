@@ -16,13 +16,13 @@ const Generalview = (props) => {
 								</h1>
 							</Row>
 							<Row>
-								<h2>Mel</h2>
+								<a href={first.website}>{first.website}</a>
 							</Row>
 							<Row>
 								<h2>{first.title}</h2>
 							</Row>
 							<Row>
-								{first.phoneNumber} {first.email} {first.location}
+								<p>{first.phoneNumber} | {first.email} | {first.location}</p>
 							</Row>
 						</Row>
 					</div>
