@@ -2,12 +2,11 @@ import { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 const Generalview = (props) => {
 	const { generalInfo } = props;
-    const [secondarr, setSecondArr ] = useState(generalInfo)
 	return (
 		<section>
-            <h1 className="secondarr"> Work Experience</h1>
+            <h2 className="secondarr"> Work Experience</h2>
             <hr className="secondarr line"></hr>
-			{secondarr.map((second, index) => {
+			{generalInfo.map((second, index) => {
                 return(
                     <div key={index}>
                         <div className="__details">
@@ -16,10 +15,10 @@ const Generalview = (props) => {
                                 <p>{second.end}</p>
                             </div>
                             <div>
-                                <p>
+                                <h6>
                                     {second.jobTitle}
-                                </p>
-                                <p>{second.company}, {second.location}</p>
+                                </h6>
+                                <h6>{second.company}, {second.location}</h6>
                             </div>
                         </div>
 				    </div>

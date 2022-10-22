@@ -2,12 +2,11 @@ import { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 const Generalview = (props) => {
 	const { educationInfo } = props;
-	const [thirdarr, setThirdArr] = useState(educationInfo);
 	return (
 		<section>
-			<h1 className=""> Education </h1>
+			<h2 className=""> Education </h2>
 			<hr className="secondarr line"></hr>
-			{thirdarr.map((third, index) => {
+			{educationInfo.map((third, index) => {
                 // The function I used for rendering the data
                 // gotten from the form.
 				return (
