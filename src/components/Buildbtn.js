@@ -1,10 +1,13 @@
-import react, {useState} from "react";
 import { Row, Button } from "react-bootstrap";
-const BuildBtn = () => {
+const BuildBtn = (props) => {
+    const { show, setShow } = props
+    const changeValue = () => {
+        setShow(show => !show )
+    }
     return(
         <>
             <Row>
-                <Button >
+                <Button onClick={changeValue}>
                     Build
                 </Button>
             </Row>

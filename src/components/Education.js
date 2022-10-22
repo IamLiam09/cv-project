@@ -1,5 +1,5 @@
-import { useState } from "react";
 import uniqid from "uniqid";
+import { useState } from "react"
 import { Row, Button } from "react-bootstrap";
 
 const Educational = (props) => {

@@ -1,11 +1,9 @@
-import { Col, Row } from "react-bootstrap";
-import { useState } from "react";
+import { Row } from "react-bootstrap";
 const Generalview = (props) => {
 	const { personalInfo } = props;
-	const [firstarr, setFirstArr] = useState(personalInfo);
 	return (
 		<section>
-			{firstarr.map((first, index) => {
+			{personalInfo.map((first, index) => {
 				return (
 					<div key={index} className="generalview">
 						<Row>

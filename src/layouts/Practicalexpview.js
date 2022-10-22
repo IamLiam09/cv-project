@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { Col, Row } from "react-bootstrap";
 const Generalview = (props) => {
 	const { generalInfo } = props;
 	return (

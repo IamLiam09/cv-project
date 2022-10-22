@@ -1,5 +1,4 @@
-import react, { useState } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 const PersonalInfo = (props) => {
 	const {personalInfo, setpersonalInfo} = props
 	const handleInputChange = (index, e) => {
